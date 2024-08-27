@@ -1,196 +1,83 @@
-document.querySelector('.parametro-senha__botao');
 const numeroSenha = document.querySelector('.parametro-senha__texto');
-const numeroSenha = document.querySelector('.parametro-senha__texto');
-numeroSenha.textContent = 5;
-const botoes = document.querySelector('.parametro-senha__botao');
-const botoes = document.querySelector('.parametro-senha__botao');
-console.log(botoes);
+let tamanhoSenha = 12;
+numeroSenha.textContent = tamanhoSenha;
+const letrasMaiusculas = 'ABCDEFGHIJKLMNOPQRSTUVXYWZ';
+const letrasMinusculas = 'abcdefghijklmnopqrstuvxywz';
+const numeros = '0123456789';
+const simbolos = '!@%*?';
 const botoes = document.querySelectorAll('.parametro-senha__botao');
-console.log(botoes);
-const botoes = document.querySelectorAll('.parametro-senha__botao');
+const campoSenha = document.querySelector('#campo-senha');
+const checkbox = document.querySelectorAll('.checkbox');
+const forcaSenha = document.querySelector('.forca');
+
 botoes[0].onclick = diminuiTamanho;
-console.log(botoes);
-const botoes = document.querySelectorAll('.parametro-senha__botao');
-botoes[0].onclick = diminuiTamanho;
-console.log(botoes);
-function diminuiTamanho(){
-}
-const numeroSenha = document.querySelector('.parametro-senha__texto');
-    let tamanhoSenha = 12;
-    senha.textContent = tamanhoSenha;
-    function diminuiTamanho(){
-        tamanhoSenha = tamanhoSenha - 1;
-        }
-        function diminuiTamanho(){
-            tamanhoSenha = tamanhoSenha - 1;
-            numeroSenha.textContent = tamanhoSenha
-            }
-            botoes[0].onclick = diminuiTamanho;
 botoes[1].onclick = aumentaTamanho;
+
+function diminuiTamanho() {
+    if (tamanhoSenha > 1) {
+        // tamanhoSenha = tamanhoSenha-1;
+        tamanhoSenha--;
+    }
+    numeroSenha.textContent = tamanhoSenha;
+    geraSenha();
+}
 function aumentaTamanho() {
-    tamanhoSenha = tamanhoSenha + 1;
-    numeroSenha.textContent = tamanhoSenha;
-    }
-    function diminuiTamanho() {
-        if (tamanhoSenha > 1)
-        tamanhoSenha = tamanhoSenha - 1;
-        numeroSenha.textContent = tamanhoSenha;
-        }
-        function aumentaTamanho() {
-            if (tamanhoSenha < 20) {
-            tamanhoSenha = tamanhoSenha + 1;
-            }
-            numeroSenha.textContent = tamanhoSenha;
-            }
-            // código omitido
-const campoSenha = document.querySelector('#campo-senha');
-// código omitido
-const campoSenha = document.querySelector('#campo-senha');
-const letrasMaiusculas = 'ABCDEFGHIJKLMNOPQRSTUVXYWZ';
-// código omitido
-const campoSenha = document.querySelector('#campo-senha');
-const letrasMaiusculas = 'ABCDEFGHIJKLMNOPQRSTUVXYWZ';
-campoSenha.textContent = letrasMaiusculas;
-campoSenha.value = letrasMaiusculas;
-// código omitido
-const campoSenha = document.querySelector('#campo-senha');
-const letrasMaiusculas = 'ABCDEFGHIJKLMNOPQRSTUVXYWZ';
-function geraSenha(){
-}
-campoSenha.value = letrasMaiusculas;
-const campoSenha = document.querySelector('#campo-senha');
-const letrasMaiusculas = 'ABCDEFGHIJKLMNOPQRSTUVXYWZ';
-geraSenha();
-function geraSenha(){
-let numeroAleatorio = Math.random()*letrasMaiusculas.length;
-console.log(numeroAleatorio);
-}
-campoSenha.value = letrasMaiusculas;
-function geraSenha()
-{
-    let numeroAleatorio = Math.random()*letrasMaiusculas.length;
-    numeroAleatorio = Math.floor(numeroAleatorio);}
-    // código omitido
-const campoSenha = document.querySelector('#campo-senha');
-const letrasMaiusculas = 'ABCDEFGHIJKLMNOPQRSTUVXYWZ';
-geraSenha();
-function geraSenha(){
-let numeroAleatorio = Math.random()*letrasMaiusculas.length;
-numeroAleatorio = Math.floor(numeroAleatorio);
-console.log(letrasMaiusculas[numeroAleatorio]);
-}
-campoSenha.value = letrasMaiusculas;
-// código omitido
-const campoSenha = document.querySelector('#campo-senha');
-const letrasMaiusculas = 'ABCDEFGHIJKLMNOPQRSTUVXYWZ';
-geraSenha();
-function geraSenha(){
-for (let i = 0; i < tamanhoSenha;i++) {
-let numeroAleatorio = Math.random()*letrasMaiusculas.length;
-numeroAleatorio = Math.floor(numeroAleatorio);
-console.log(letrasMaiusculas[numeroAleatorio]);
-}
-}
-campoSenha.value = letrasMaiusculas;
-function diminuiTamanho(){
-    if (tamanhoSenha > 1){
-    // tamanhoSenha = tamanhoSenha-1;
-    tamanhoSenha--;
+    if (tamanhoSenha < 20) {
+        // tamanhoSenha = tamanhoSenha+1;
+        tamanhoSenha++;
     }
     numeroSenha.textContent = tamanhoSenha;
     geraSenha();
+}
+
+for (i = 0; i < checkbox.length; i++) {
+    checkbox[i].onclick = geraSenha;
+}
+
+geraSenha();
+
+function geraSenha() {
+    let alfabeto = '';
+    if (checkbox[0].checked) {
+        alfabeto = alfabeto + letrasMaiusculas;
     }
-    function aumentaTamanho(){
-    if (tamanhoSenha < 20){
-    // tamanhoSenha = tamanhoSenha+1;
-    tamanhoSenha++;
+    if (checkbox[1].checked) {
+        alfabeto = alfabeto + letrasMinusculas;
     }
-    numeroSenha.textContent = tamanhoSenha;
-    geraSenha();
+    if (checkbox[2].checked) {
+        alfabeto = alfabeto + numeros;
     }
-    // código omitido
-function geraSenha(){
+    if (checkbox[3].checked) {
+        alfabeto = alfabeto + simbolos;
+    }
     let senha = '';
-    for (let i = 0; i < tamanhoSenha;i++) {
-    let numeroAleatorio = Math.random()*letrasMaiusculas
-    
-    length;
-    
-    numeroAleatorio = Math.floor(numeroAleatorio);
-    console.log(letrasMaiusculas[numeroAleatorio]);
-    
-    }
-    }
-    campoSenha.value = letrasMaiusculas;
-    function geraSenha(){
-        let senha = '';
-        for (let i = 0; i < tamanhoSenha;i++){
-        
-        let numeroAleatorio = Math.random()*letrasMaiusculaslength;
+    for (let i = 0; i < tamanhoSenha; i++) {
+        let numeroAleatorio = Math.random() * alfabeto.length;
         numeroAleatorio = Math.floor(numeroAleatorio);
-        senha = senha + letrasMaiusculas[numeroAleatorio];
-        console.log(letrasMaiusculas[numeroAleatorio]);
-        
-        }
-        campoSenha.value = letrasMaiusculas;
-        }
-        function geraSenha(){
-            let senha = '';
-            for (let i = 0; i < tamanhoSenha;i++){
-            
-            let numeroAleatorio = Math.random()*letrasMaiusculas
-            
-            length;
-            
-            numeroAleatorio = Math.floor(numeroAleatorio);
-            senha = senha + letrasMaiusculas[numeroAleatorio];
-            
-            }
-            campoSenha.value = senha;
-            }
-            document.querySelector('.parametro-senha__botao');
-            const numeroSenha = document.querySelector('.parametro-senha__texto');
-            const numeroSenha = document.querySelector('.parametro-senha__texto');
-numeroSenha.textContent = 5;
-const botoes = document.querySelector('.parametro-senha__botao');
-const botoes = document.querySelector('.parametro-senha__botao');
-console.log(botoes);
-const botoes = document.querySelectorAll('.parametro-senha__botao');
-console.log(botoes);
-const botoes = document.querySelectorAll('.parametro-senha__botao');
-botoes[0].onclick = diminuiTamanho;
-console.log(botoes);
-const botoes = document.querySelectorAll('.parametro-senha__botao');
-botoes[0].onclick = diminuiTamanho;
-console.log(botoes);
-function diminuiTamanho(){
-}
-const numeroSenha = document.querySelector('parametro-senha__texto');
-    let tamanhoSenha = 12;
-    senha.textContent = tamanhoSenha;
-    function diminuiTamanho(){
-        tamanhoSenha = tamanhoSenha - 1;
-        }
-        function diminuiTamanho(){
-            tamanhoSenha = tamanhoSenha - 1;
-            numeroSenha.textContent = tamanhoSenha
-            }
-            botoes[0].onclick = diminuiTamanho;
-botoes[1].onclick = aumentaTamanho;
-function aumentaTamanho() {
-    tamanhoSenha = tamanhoSenha + 1;
-    numeroSenha.textContent = tamanhoSenha;
+        senha = senha + alfabeto[numeroAleatorio];
     }
-    function diminuiTamanho() {
-        if (tamanhoSenha > 1)
-        tamanhoSenha = tamanhoSenha - 1;
-        numeroSenha.textContent = tamanhoSenha;
-        }
-        function aumentaTamanho() {
-            if (tamanhoSenha < 20) {
-            tamanhoSenha = tamanhoSenha + 1;
-            }
-            numeroSenha.textContent = tamanhoSenha;
-            }
-            // código omitido
-const campoSenha = document.querySelector(#campo-senha);
+    campoSenha.value = senha;
+    classificaSenha(alfabeto.length);
+
+}
+
+function classificaSenha(tamanhoAlfabeto){
+    let entropia = tamanhoSenha * Math.log2(tamanhoAlfabeto);
+    console.log(entropia);
+    forcaSenha.classList.remove('fraca','media','forte');
+    if (entropia > 57){
+        forcaSenha.classList.add('forte');
+    } else if (entropia > 35 && entropia < 57 ) {
+        forcaSenha.classList.add('media');
+    } else if (entropia <= 35){
+        forcaSenha.classList.add('fraca');
+    }
+    const valorEntropia = document.querySelector('.entropia');
+    valorEntropia.textContent = "Um computador pode levar até " + Math.floor(2**entropia/(100e6*60*60*24)) + " dias para descobrir essa senha.";
+}
+
+
+
+
+
+
